@@ -1,6 +1,9 @@
 import { CONTACT_DATA, PERSONAL_INFO } from '../constants'
+import { useSpotlight } from '../hooks/useSpotlight'
 
 export default function Contact() {
+  const { coords, isHovered, spotlightProps } = useSpotlight()
+
   return (
     <section aria-labelledby="contact-heading" className="space-y-10 pt-4">
       {/* Section Header */}
@@ -13,8 +16,21 @@ export default function Contact() {
         </h2>
       </div>
 
-      {/* Direct Contact Card */}
-      <div className="bg-zinc-900/40 border border-zinc-800/90 rounded-2xl p-6 sm:p-10 space-y-8">
+      {/* Direct Contact Card with Spotlight */}
+      <div
+        {...spotlightProps}
+        className="group relative bg-zinc-900/40 border border-zinc-800/90 hover:border-zinc-700/80 rounded-2xl p-6 sm:p-10 space-y-8 transition-all duration-300 overflow-hidden"
+      >
+        <div
+          className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background: isHovered
+              ? `radial-gradient(400px circle at ${coords.x}px ${coords.y}px, rgba(99, 102, 241, 0.08), transparent 80%)`
+              : undefined,
+          }}
+          aria-hidden="true"
+        />
+
         <div className="space-y-3">
           <h3 className="text-2xl sm:text-3xl font-bold text-zinc-100 tracking-tight">
             {CONTACT_DATA.headline}
@@ -28,7 +44,7 @@ export default function Contact() {
         <div className="flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${CONTACT_DATA.email}`}
-            className="inline-flex items-center gap-2 bg-zinc-100 text-zinc-950 font-medium text-sm px-5 py-3 rounded-lg hover:bg-white active:scale-[0.98] transition-all duration-300 cursor-pointer shadow-md shadow-black/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            className="inline-flex items-center gap-2 bg-zinc-100 text-zinc-950 font-medium text-sm px-5 py-3 rounded-lg hover:bg-white active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-md shadow-black/30 border-t border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
           >
             <svg className="w-4 h-4 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -40,7 +56,7 @@ export default function Contact() {
             href={CONTACT_DATA.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 hover:border-zinc-700 text-sm font-medium px-5 py-3 rounded-lg active:scale-[0.98] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            className="inline-flex items-center gap-2 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 hover:border-zinc-700 text-sm font-medium px-5 py-3 rounded-lg active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
             aria-label="Visit Derrick Osebe's GitHub Profile"
           >
             <svg className="w-4 h-4 text-zinc-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -69,7 +85,3 @@ export default function Contact() {
     </section>
   )
 }
-
-
-
-
