@@ -1,0 +1,81 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1573 >>
+stream
+BT
+/F1 20 Tf
+50 740 Td
+(Derrick Osebe) Tj
+/F1 12 Tf
+0 -24 Td
+(Software Engineer - Distributed Systems, IoT Telemetry & Applied AI) Tj
+0 -18 Td
+(Email: derrickosebe70@gmail.com | GitHub: github.com/OsebeMoses | Nairobi, Kenya) Tj
+0 -30 Td
+/F1 14 Tf
+(EDUCATION) Tj
+/F1 11 Tf
+0 -18 Td
+(BSc in Computer Science - Kabarak University [Expected Dec 2026]) Tj
+0 -30 Td
+/F1 14 Tf
+(EXPERIENCE) Tj
+/F1 11 Tf
+0 -18 Td
+(Telematics Africa Limited - Software Engineering Intern [Industrial Attachment]) Tj
+0 -16 Td
+(- Engineered IoT telemetry analytics and data ingestion workflows for fleet management.) Tj
+0 -14 Td
+(- Executed database sanitization, index optimization, and schema cleansing in PostgreSQL.) Tj
+0 -14 Td
+(- Analyzed edge sensor feeds to resolve transmission anomalies across vehicle units.) Tj
+0 -30 Td
+/F1 14 Tf
+(FEATURED PROJECTS) Tj
+/F1 11 Tf
+0 -18 Td
+(ColdTrace: Offline-First Vaccine Thermal Telemetry Platform [React, Node.js, IndexedDB]) Tj
+0 -14 Td
+(- Zero-loss offline queue buffering with Arrhenius kinetic thermal degradation forecasting.) Tj
+0 -20 Td
+(Wakili Mkononi: Constitutional RAG & Semantic Retrieval Pipeline [Python, Supabase, React]) Tj
+0 -14 Td
+(- Sub-second legal citation retrieval with strict prompt guardrails against hallucination.) Tj
+0 -30 Td
+/F1 14 Tf
+(TECHNICAL SKILLS) Tj
+/F1 11 Tf
+0 -18 Td
+(Languages: Python, TypeScript/JavaScript, Node.js, SQL, C/C++) Tj
+0 -14 Td
+(Databases & Cloud: PostgreSQL, Supabase, MySQL, IndexedDB, Redis) Tj
+0 -14 Td
+(Specializations: Distributed Systems, Telemetry Buffering, Vector DBs, RAG Ingestion) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001866 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1936
+%%EOF
