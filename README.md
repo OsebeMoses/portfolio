@@ -41,7 +41,7 @@ portfolio/
 ├── src/
 │   ├── assets/                # Visual assets and icons
 │   ├── components/
-│   │   ├── About.jsx          # Profile summary, attachment experience, credentials & stack matrix
+│   │   ├── About.jsx          # Profile summary, internship experience, credentials & stack matrix
 │   │   ├── CommandPalette.jsx # Raycast-style ⌘K keyboard navigation modal
 │   │   ├── Contact.jsx        # Direct contact card and footer colophon
 │   │   ├── Hero.jsx           # Squircle avatar, Nairobi real-time clock, above-fold actions

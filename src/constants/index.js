@@ -146,10 +146,10 @@ export const PROJECTS_DATA = {
 
 export const EXPERIENCE_DATA = {
   sectionTitle: "Work Experience & Internships",
-  role: "Software Engineering Intern (Industrial Attachment)",
+  role: "Software Engineering Intern",
   company: "Telematics Africa Limited",
   focusArea: "Fleet Telemetry & IoT Systems",
-  period: "Industrial Attachment",
+  period: "Internship",
   bullets: [
     "Engineered IoT telemetry analytics and data ingestion workflows for enterprise fleet management systems.",
     "Executed relational database sanitization, index optimization, and schema cleansing in PostgreSQL to ensure high data integrity.",
@@ -174,10 +174,10 @@ export const ADDITIONAL_CREDENTIALS = {
       detail: "Core coursework: Data Structures & Algorithms, Distributed Systems, Database Engineering, Computer Networks.",
     },
     {
-      title: "Industrial Attachment Certification",
+      title: "Software Engineering Internship",
       issuer: "Telematics Africa Limited",
       period: "Completed",
-      detail: "Practical engineering experience in IoT telemetry ingestion, vehicle sensor data analysis, and relational database maintenance.",
+      detail: "Practical engineering internship experience in IoT telemetry ingestion, vehicle sensor data analysis, and relational database maintenance.",
     },
     {
       title: "[TODO: Add Certification / Hackathon, e.g. AWS Certified Cloud Practitioner / Hackathon Award]",

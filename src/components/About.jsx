@@ -27,7 +27,7 @@ export default function About({ activeSkill, onSelectSkill }) {
         </p>
       </div>
 
-      {/* Industrial Attachment / Work Experience Card with Spotlight */}
+      {/* Work Experience & Internship Card with Spotlight */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-zinc-100 tracking-tight">
           {EXPERIENCE_DATA.sectionTitle}
