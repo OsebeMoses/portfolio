@@ -77,10 +77,36 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Footer Colophon */}
-      <footer className="pt-8 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-zinc-900">
-        <p>&copy; {new Date().getFullYear()} Derrick Osebe. All rights reserved.</p>
-        <p className="text-zinc-600">Engineered with React 19, Vite &amp; Tailwind CSS</p>
+      {/* Footer Colophon with dual Resume & Contact links */}
+      <footer className="pt-8 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-zinc-800/80">
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-indigo-400 transition-colors flex items-center gap-1 font-medium"
+          >
+            <span>Download CV (PDF)</span>
+            <span aria-hidden="true">&darr;</span>
+          </a>
+          <span className="text-zinc-700">•</span>
+          <a
+            href={`mailto:${CONTACT_DATA.email}`}
+            className="text-zinc-400 hover:text-indigo-400 transition-colors"
+          >
+            {CONTACT_DATA.email}
+          </a>
+          <span className="text-zinc-700">•</span>
+          <a
+            href={CONTACT_DATA.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-zinc-200 transition-colors"
+          >
+            {CONTACT_DATA.githubHandle}
+          </a>
+        </div>
+        <p>&copy; {new Date().getFullYear()} Derrick Osebe &bull; React 19 &bull; Vite &bull; Tailwind CSS</p>
       </footer>
     </section>
   )

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
-import About from './components/About'
 import Projects from './components/Projects'
+import About from './components/About'
 import Contact from './components/Contact'
 import CommandPalette from './components/CommandPalette'
 
@@ -52,8 +52,11 @@ export default function App() {
         className="relative max-w-4xl mx-auto px-6 sm:px-8 py-16 sm:py-24 space-y-20 sm:space-y-28 focus:outline-none"
       >
         <Hero onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
-        <About activeSkill={activeSkill} onSelectSkill={setActiveSkill} />
+        {/* Lead with Projects (Top priority for software engineering graduate portfolios) */}
         <Projects activeSkill={activeSkill} />
+        {/* Experience, Education, Certifications & Competencies */}
+        <About activeSkill={activeSkill} onSelectSkill={setActiveSkill} />
+        {/* Contact & Footer */}
         <Contact />
       </main>
 

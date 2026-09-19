@@ -54,13 +54,16 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
             <svg className="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
-            <span className="text-zinc-300 font-medium">{project.title}</span>
+            <span className="text-zinc-200 font-medium">{project.title}</span>
             <span className="text-zinc-600 font-mono hidden md:inline">({project.branch})</span>
           </div>
         </div>
 
-        {/* Status Pill & Mode */}
+        {/* Role Pill & Environment */}
         <div className="flex items-center gap-2 text-xs font-mono">
+          <span className="hidden sm:inline-block text-[11px] text-zinc-400 bg-zinc-800/60 border border-zinc-700/60 px-2 py-0.5 rounded">
+            Role: {project.role}
+          </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 text-[11px]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {project.environment.toUpperCase()}
@@ -271,11 +274,12 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
         )}
       </div>
 
-      {/* Case Study Context, Metrics & Tech */}
+      {/* Mini Case Study: Problem, Role, What Was Built, Challenge, Outcome */}
       <div className="p-6 sm:p-8 space-y-6">
-        <div className="space-y-2">
+        {/* Header: Domain, Title & Subtitle */}
+        <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-mono font-medium text-indigo-400 uppercase tracking-wider">
+            <span className="text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider">
               {project.domain}
             </span>
             <span className="text-zinc-600">•</span>
@@ -284,40 +288,72 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
 
           <h3
             id={`project-${project.id}`}
-            className="text-xl sm:text-2xl font-bold text-zinc-100 group-hover:text-white transition-colors"
+            className="text-2xl sm:text-3xl font-bold text-zinc-100 group-hover:text-white transition-colors tracking-tight"
           >
             {project.title}
           </h3>
+        </div>
 
-          <p className="text-sm sm:text-base text-zinc-400 leading-relaxed pt-1">
-            {project.description}
+        {/* 1. Problem Statement Box */}
+        <div className="p-4 rounded-xl bg-amber-950/10 border border-amber-500/20 space-y-1">
+          <div className="text-xs font-mono font-semibold text-amber-400/90 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span>The Problem</span>
+          </div>
+          <p className="text-sm text-zinc-300 leading-relaxed font-sans">
+            {project.problem}
           </p>
         </div>
 
-        {/* Architectural Highlights */}
-        {project.architectureHighlights && (
-          <div className="space-y-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-semibold">
-              Key Architectural Decisions
-            </span>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-400" role="list">
-              {project.architectureHighlights.map((highlight, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-indigo-400 font-mono select-none" aria-hidden="true">&rarr;</span>
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
+        {/* 2. What He Built & Role */}
+        <div className="space-y-1">
+          <div className="text-xs font-mono font-semibold text-zinc-400 uppercase tracking-wider">
+            What Was Built &amp; Role ({project.role})
           </div>
-        )}
+          <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-sans">
+            {project.whatBuilt}
+          </p>
+        </div>
 
-        {/* Engineering Metrics / Specs */}
+        {/* 3. Real Technical Challenge & Engineering Solution Callout */}
+        <div className="p-4 sm:p-5 rounded-xl bg-zinc-950/80 border border-zinc-800 space-y-3">
+          <div className="text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider flex items-center gap-2">
+            <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Key Engineering Challenge &amp; Resolution</span>
+          </div>
+
+          <div className="space-y-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+            <div>
+              <span className="font-semibold text-zinc-200">The Challenge: </span>
+              <span className="text-zinc-400">{project.technicalChallenge}</span>
+            </div>
+            <div>
+              <span className="font-semibold text-zinc-200">Engineering Solution: </span>
+              <span className="text-zinc-400">{project.solution}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Verifiable Outcome */}
+        <div className="space-y-1">
+          <div className="text-xs font-mono font-semibold text-emerald-400/90 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span>Verified Outcome</span>
+          </div>
+          <p className="text-sm text-zinc-300 leading-relaxed font-sans">
+            {project.outcome}
+          </p>
+        </div>
+
+        {/* 5. Metrics Grid */}
         {project.metrics && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
             {project.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="p-3 rounded-lg bg-zinc-950/60 border border-zinc-800/80"
+                className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-800/80"
               >
                 <div className="text-[11px] font-mono text-zinc-500 uppercase">{metric.label}</div>
                 <div className="text-xs sm:text-sm font-mono font-medium text-zinc-200 mt-0.5">{metric.value}</div>
@@ -326,8 +362,8 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
           </div>
         )}
 
-        {/* Technology Badges & Repository Link */}
-        <div className="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-800/60">
+        {/* 6. Technology Stack & Action Links (GitHub + Working Live Demo / Status) */}
+        <div className="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-800/60">
           <div className="flex flex-wrap gap-1.5" aria-label={`Technologies in ${project.title}`}>
             {project.technologies.map((tech) => (
               <span
@@ -339,20 +375,42 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
             ))}
           </div>
 
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-white bg-zinc-800/70 hover:bg-zinc-800 border border-zinc-700/80 px-3 py-1.5 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-              aria-label={`View ${project.title} repository on GitHub`}
-            >
-              <svg className="w-3.5 h-3.5 text-zinc-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-              <span>GitHub Repository</span>
-            </a>
-          )}
+          <div className="flex items-center gap-3">
+            {project.demoUrl ? (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-300 hover:text-indigo-200 bg-indigo-950/40 hover:bg-indigo-900/50 border border-indigo-700/60 px-3 py-1.5 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              >
+                <span>Live Demo</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            ) : (
+              <span
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-lg"
+                title={project.demoStatus}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />
+                <span>Local Verified Prototype</span>
+              </span>
+            )}
+
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-white bg-zinc-800/70 hover:bg-zinc-800 border border-zinc-700/80 px-3 py-1.5 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                aria-label={`View ${project.title} repository on GitHub`}
+              >
+                <svg className="w-3.5 h-3.5 text-zinc-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                <span>GitHub</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </article>

@@ -94,9 +94,9 @@ export default function Hero({ onOpenCommandPalette }) {
         </div>
       </div>
 
-      {/* Executive Summary */}
-      <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl">
-        {PERSONAL_INFO.summary}
+      {/* Specific Hero Positioning Line */}
+      <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-3xl">
+        {PERSONAL_INFO.heroHeadline}
       </p>
 
       {/* Tactile Action Suite: Copy Email, Download CV, GitHub, Contact */}
