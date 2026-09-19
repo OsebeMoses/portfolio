@@ -34,7 +34,7 @@ export default function CommandPalette({ isOpen, onClose }) {
           </svg>
         ),
         perform: () => {
-          const el = document.getElementById('experience-heading')
+          const el = document.getElementById('about-experience-heading') || document.getElementById('experience-heading')
           if (el) el.scrollIntoView({ behavior: 'smooth' })
         },
       },

@@ -237,6 +237,21 @@ export default function ProjectWorkbench({ project, isHighlighted }) {
                 </div>
               </div>
             )}
+
+            {project.id !== 'coldtrace' && project.id !== 'wakili-mkononi' && (
+              <div className="rounded-xl bg-zinc-900/60 border border-zinc-800/80 p-5 space-y-3 font-mono text-xs">
+                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                    <span className="text-zinc-200 font-semibold">{project.title} &mdash; System Monitor</span>
+                  </div>
+                  <span className="text-[11px] text-zinc-500">Status: Verified</span>
+                </div>
+                <p className="text-zinc-400 font-sans text-xs leading-relaxed">
+                  {project.whatBuilt || project.description}
+                </p>
+              </div>
+            )}
           </div>
         )}
 
